@@ -33,7 +33,8 @@ def loss_batch(model:Model, xb:Tensor, yb:Tensor, loss_fn:OptLossFunc=None,
         cb_handler.on_step_end()
         opt.zero_grad()
 
-    return (loss.detach().cpu(),) + tuple(mets) + (yb[0].shape[0],)
+    # return (loss.detach().cpu(),) + tuple(mets) + (yb[0].shape[0],)
+    return (0,) + tuple(mets) + (yb[0].shape[0],)
 
 
 def validate(model:Model, dl:DataLoader, loss_fn:OptLossFunc=None,
